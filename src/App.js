@@ -1,23 +1,38 @@
-import React from 'react';
-import { Route, Switch } form 'react-router-dom';
-import NavBar from ./Components/NavBar;
-import HomePage from ./Components/HomePage;            
-import BurgerForm from ./Components/BurgerForm;
+import React, { useState } from 'react';
+import { Route, Switch } from 'react-router-dom';
+import styled from 'styled-components';
+import NavBar from './components/NavBar';
+import BurgerForm from './components/BurgerForm';
+import HomePage from './components/HomePage';
+
+//NavBar
+//HomePage
+//BurgerForm
 
 function App() {
+  const [orders, setOrders] = useState([]);
+
+  const addOrder = order => {
+    setOrders([...orders, order]);
+  }
+
   return (
-    <div>
-    <NavBar />
-    <Switch>
-      <Route path='/buildaburger'>
-        <BurgerForm />
+    <AppContainer>
+      <NavBar />
+      <Switch>
+        <Route path='/buildaburger'>
+          <BurgerForm addOrder={addOrder} />
         </Route>
-        </Route exact path='/'>
-        <Home Page />
+        <Route exact path='/'>
+          <HomePage orders={orders} />
         </Route>
-        </Switch>
-    </div>
+      </Switch>
+    </AppContainer>
   );
-}
+};
+
+const AppContainer = styled.div`
+  background: #000;
+`
 
 export default App;
