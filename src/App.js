@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, Switch } form 'react-router-dom';
-import NavBar from ./components/NavBar;
-import HomePage from ./components/HomePage;            
-import BurgerForm ./components/BurgerForm;
+import NavBar from ./Components/NavBar;
+import HomePage from ./Components/HomePage;            
+import BurgerForm from ./Components/BurgerForm;
 
 function App() {
   return (
